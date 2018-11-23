@@ -1,0 +1,30 @@
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
+import morgan from 'morgan';
+
+import schema from '../schema';
+import resolvers from './resolvers';
+
+const IS_DEV = process.env.NODE_ENV === 'development';
+const PORT = process.env.PORT || 3000;
+
+const app = express();
+
+if (process.env.NODE_ENV !== 'test') {
+  app.use(morgan(IS_DEV ? 'dev' : 'common'));
+}
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    graphiql: IS_DEV,
+    rootValue: resolvers,
+    schema,
+  })
+);
+
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Server listening on localhost:${PORT}`));
+}
+
+export default app;
