@@ -1,9 +1,33 @@
-import fs from 'fs';
-import { buildSchema } from 'graphql';
-import path from 'path';
+import {
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLNonNull,
+} from 'graphql';
 
-const schema = buildSchema(
-  fs.readFileSync(path.join(__dirname, 'schema.gql'), 'utf8')
-);
+import InputType from './unions/InputType';
+import InputModesTypes from './enums/InputModesType';
+
+const schema = new GraphQLSchema({
+  assumeValid: process.env.NODE_ENV === 'production',
+  query: new GraphQLObjectType({
+    name: 'RootQueryType',
+    fields: {
+      hello: {
+        name: 'HelloQuery',
+        type: new GraphQLNonNull(GraphQLString),
+      },
+      input: {
+        args: {
+          type: {
+            type: new GraphQLNonNull(InputModesTypes),
+          },
+        },
+        name: 'InputQuery',
+        type: InputType,
+      },
+    },
+  }),
+});
 
 export default schema;

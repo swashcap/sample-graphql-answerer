@@ -1,0 +1,48 @@
+interface BaseInput {
+  disabled: Boolean
+  label: String
+  name: String!
+  value: String
+}
+
+type DateInput implements BaseInput {
+  disabled: Boolean
+  label: String
+  name: String!
+  value: String
+}
+
+type SelectableInputOptions {
+  disabled: Boolean
+  name: String!
+  value: String!
+}
+
+type SelectableInput implements BaseInput {
+  disabled: Boolean
+  label: String
+  name: String!
+  options: [SelectableInputOptions]!
+  value: String
+}
+
+type TextInput {
+  disabled: Boolean
+  label: String
+  name: String!
+  placeholder: String
+  value: String
+}
+
+enum InputTypes {
+  DATE
+  SELECTABLE
+  TEXT
+}
+
+union Input = DateInput | SelectableInput | TextInput
+
+type Query {
+  hello: String!,
+  input(type: InputTypes): Input
+}

@@ -3,7 +3,7 @@ import graphqlHTTP from 'express-graphql';
 import morgan from 'morgan';
 
 import schema from '../schema';
-import resolvers from './resolvers';
+import handlers from './handlers';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 const PORT = process.env.PORT || 3000;
@@ -18,7 +18,7 @@ app.use(
   '/graphql',
   graphqlHTTP({
     graphiql: IS_DEV,
-    rootValue: resolvers,
+    rootValue: handlers,
     schema,
   })
 );
