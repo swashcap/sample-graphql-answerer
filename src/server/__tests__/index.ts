@@ -51,3 +51,43 @@ test('input text', () =>
         input: { __typename: 'TextInput' },
       });
     }));
+
+test('input variable query', () =>
+  supertest(app)
+    .post('/graphql')
+    .send({
+      query: `query SampleQuery($type: InputModes!) {
+        input(type: $type) {
+          ... on DateInput {
+            ... inputFields
+          }
+          ... on SelectableInput {
+            ... inputFields
+            options {
+              disabled
+              name
+              value
+            }
+          }
+          ... on TextInput {
+            ... inputFields
+            placeholder
+          }
+        }
+      }
+
+      fragment inputFields on InputBase {
+        disabled
+        label
+        name
+        value
+      }
+      `,
+      variables: {
+        type: 'TEXT',
+      },
+    })
+    .then(({ body }) => {
+      expect(body).not.toHaveProperty('errors');
+      expect(body.data.input).toHaveProperty('name');
+    }));
