@@ -6,8 +6,7 @@ import {
   GraphQLList,
 } from 'graphql';
 
-import InputInterfaceType from '../interfaces/InputInterfaceType';
-import SelectableInputOptionsType from './SelectableInputOptionsType';
+import SelectableInputOptionType from './SelectableInputOptionType';
 
 export default new GraphQLObjectType({
   fields: {
@@ -16,7 +15,7 @@ export default new GraphQLObjectType({
     name: { type: new GraphQLNonNull(GraphQLString) },
     value: { type: GraphQLString },
     options: {
-      type: new GraphQLNonNull(GraphQLList(SelectableInputOptionsType)),
+      type: new GraphQLNonNull(GraphQLList(SelectableInputOptionType)),
     },
   },
   interfaces: [InputInterfaceType],

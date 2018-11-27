@@ -6,7 +6,7 @@ import {
 } from 'graphql';
 
 export default new GraphQLObjectType({
-  name: 'SelectableInputOptions',
+  name: 'SelectableInputOption',
   fields: {
     disabled: { type: GraphQLBoolean },
     name: { type: new GraphQLNonNull(GraphQLString) },
