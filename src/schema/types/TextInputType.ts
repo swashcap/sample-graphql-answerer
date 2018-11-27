@@ -5,7 +5,13 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
-import InputBaseType from '../interfaces/InputInterfaceType';
+import InputBaseType, {
+  InputBaseProps,
+} from '../interfaces/InputInterfaceType';
+
+export interface TextInputProps extends InputBaseProps {
+  placeholder: string;
+}
 
 export default new GraphQLObjectType({
   name: 'TextInput',

@@ -5,6 +5,12 @@ import {
   GraphQLString,
 } from 'graphql';
 
+export interface SelectableInputOptionProps {
+  disabled?: boolean;
+  name: string;
+  value: string;
+}
+
 export default new GraphQLObjectType({
   name: 'SelectableInputOption',
   fields: {

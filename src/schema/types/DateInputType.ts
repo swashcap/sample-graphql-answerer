@@ -5,7 +5,11 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
-import InputBaseType from '../interfaces/InputInterfaceType';
+import InputBaseType, {
+  InputBaseProps,
+} from '../interfaces/InputInterfaceType';
+
+export type DateInputProps = InputBaseProps;
 
 export default new GraphQLObjectType({
   name: 'DateInput',

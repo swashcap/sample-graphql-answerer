@@ -5,6 +5,13 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
+export interface InputBaseProps {
+  disabled?: boolean;
+  label?: string;
+  name: string;
+  value?: string;
+}
+
 export default new GraphQLInterfaceType({
   name: 'InputBase',
   fields: {

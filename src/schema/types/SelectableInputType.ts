@@ -6,7 +6,16 @@ import {
   GraphQLList,
 } from 'graphql';
 
-import SelectableInputOptionType from './SelectableInputOptionType';
+import InputInterfaceType, {
+  InputBaseProps,
+} from '../interfaces/InputInterfaceType';
+import SelectableInputOptionType, {
+  SelectableInputOptionProps,
+} from './SelectableInputOptionType';
+
+export interface SelectableInputProps extends InputBaseProps {
+  options: SelectableInputOptionProps[];
+}
 
 export default new GraphQLObjectType({
   fields: {
