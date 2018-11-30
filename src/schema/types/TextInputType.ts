@@ -10,7 +10,7 @@ import InputBaseType, {
 } from '../interfaces/InputInterfaceType';
 
 export interface TextInputProps extends InputBaseProps {
-  placeholder: string;
+  placeholder?: string;
 }
 
 export default new GraphQLObjectType({
