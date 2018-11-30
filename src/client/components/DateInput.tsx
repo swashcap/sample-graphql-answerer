@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Label from './Label';
+import * as styles from './DateInput.module.css';
 import { DateInputProps } from '../../schema/types/DateInputType';
 
 export interface Props extends DateInputProps {
@@ -8,8 +9,15 @@ export interface Props extends DateInputProps {
 }
 
 export default ({ disabled = false, id, label, name, value }: Props) => (
-  <div>
+  <div className={styles.container}>
     {label && <Label htmlFor={id}>{label}</Label>}
-    <input disabled={disabled} id={id} name={name} type="date" value={value} />
+    <input
+      className={styles.input}
+      disabled={disabled}
+      id={id}
+      name={name}
+      type="date"
+      value={value}
+    />
   </div>
 );

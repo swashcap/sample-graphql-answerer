@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Label from './Label';
+import * as styles from './TextInput.module.css';
 import { TextInputProps } from '../../schema/types/TextInputType';
 
 export interface Props extends TextInputProps {
@@ -15,9 +16,10 @@ export default ({
   placeholder,
   value,
 }: Props) => (
-  <div>
+  <div className={styles.container}>
     {label && <Label htmlFor={id}>{label}</Label>}
     <input
+      className={styles.input}
       disabled={disabled}
       id={id}
       name={name}
