@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Label from './Label';
 import { SelectableInputProps } from '../../schema/types/SelectableInputType';
 
 export interface Props extends SelectableInputProps {
@@ -8,7 +9,7 @@ export interface Props extends SelectableInputProps {
 
 export default ({ disabled = false, id, label, name, options }: Props) => (
   <div>
-    {label && <label htmlFor={id}>{label}</label>}
+    {label && <Label htmlFor={id}>{label}</Label>}
     <select disabled={disabled} id={id} name={name}>
       {options.map(({ disabled: dis, name, value }) => (
         <option disabled={dis} key={value} value={value}>

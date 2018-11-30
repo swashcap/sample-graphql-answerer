@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Label from './Label';
 import { TextInputProps } from '../../schema/types/TextInputType';
 
 export interface Props extends TextInputProps {
@@ -15,7 +16,7 @@ export default ({
   value,
 }: Props) => (
   <div>
-    {label && <label htmlFor={id}>{label}</label>}
+    {label && <Label htmlFor={id}>{label}</Label>}
     <input
       disabled={disabled}
       id={id}
