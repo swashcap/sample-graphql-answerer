@@ -14,7 +14,7 @@ type Props =
   | SelectableInputProps & { __typename: 'SelectableInput' }
   | TextInputProps & { __typename: 'TextInput' };
 
-export default class Input extends React.Component<Props> {
+export default class InputSwitcher extends React.Component<Props> {
   renderInput(uniqueId: string) {
     if (this.props.__typename === 'DateInput') {
       return <DateInput id={uniqueId} {...this.props} />;
