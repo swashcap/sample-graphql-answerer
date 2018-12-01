@@ -11,8 +11,10 @@ export {
   InputBaseProps as DateInputProps,
 } from '../interfaces/InputInterfaceType';
 
+export const typeName = 'DateInput';
+
 export default new GraphQLObjectType({
-  name: 'DateInput',
+  name: typeName,
   fields: {
     disabled: { type: GraphQLBoolean },
     label: { type: GraphQLString },

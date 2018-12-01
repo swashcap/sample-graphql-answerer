@@ -13,8 +13,10 @@ export interface TextInputProps extends InputBaseProps {
   placeholder?: string;
 }
 
+export const typeName = 'TextInput';
+
 export default new GraphQLObjectType({
-  name: 'TextInput',
+  name: typeName,
   fields: {
     disabled: { type: GraphQLBoolean },
     label: { type: GraphQLString },

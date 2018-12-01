@@ -17,6 +17,8 @@ export interface SelectableInputProps extends InputBaseProps {
   options: SelectableInputOptionProps[];
 }
 
+export const typeName = 'SelectableInput';
+
 export default new GraphQLObjectType({
   fields: {
     disabled: { type: GraphQLBoolean },
@@ -28,5 +30,5 @@ export default new GraphQLObjectType({
     },
   },
   interfaces: [InputInterfaceType],
-  name: 'SelectableInput',
+  name: typeName,
 });
