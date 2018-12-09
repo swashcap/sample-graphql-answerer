@@ -3,10 +3,13 @@ import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLNonNull,
+  GraphQLID,
 } from 'graphql';
 
 import InputType from './unions/InputType';
 import InputModesTypes from './enums/InputModesType';
+import ProductCategoryType from './types/ProductCategoryType';
+import ProductType from './types/ProductType';
 
 const schema = new GraphQLSchema({
   assumeValid: process.env.NODE_ENV === 'production',
@@ -25,6 +28,27 @@ const schema = new GraphQLSchema({
         },
         name: 'InputQuery',
         type: InputType,
+      },
+      product: {
+        args: {
+          id: {
+            type: new GraphQLNonNull(GraphQLID),
+          },
+        },
+        description: 'Retrieve a product by its identifier',
+        name: 'ProductQuery',
+        type: ProductType,
+      },
+      productCategory: {
+        args: {
+          name: {
+            description: 'hi',
+            type: GraphQLString,
+          },
+        },
+        description: 'Retrieve all product categories',
+        name: 'ProductCategoryQuery',
+        type: ProductCategoryType,
       },
     },
   }),
