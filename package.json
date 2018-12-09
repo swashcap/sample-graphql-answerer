@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "build": "./scripts/build.sh",
+    "build": "tsc",
     "prettier": "prettier --write '*.js' 'src/**/*.{css,ts,tsx}'",
     "start": "node build/server/index.js",
     "styleguide": "styleguidist server",
