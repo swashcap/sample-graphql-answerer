@@ -7,11 +7,12 @@ import handlers from './handlers';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 const PORT = process.env.PORT || 3000;
+const LOG_LEVEL = process.env.LOG_LEVEL || 'common'
 
 const app = express();
 
 if (process.env.NODE_ENV !== 'test') {
-  app.use(morgan(IS_DEV ? 'dev' : 'common'));
+  app.use(morgan(LOG_LEVEL));
 }
 
 app.use(
