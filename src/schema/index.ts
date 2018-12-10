@@ -42,7 +42,6 @@ const schema = new GraphQLSchema({
       productCategory: {
         args: {
           name: {
-            description: 'hi',
             type: GraphQLString,
           },
         },
